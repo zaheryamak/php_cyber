@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: mon-app-php
+    env: docker
+    repo: https://github.com/TON-UTILISATEUR/TON-DEPOT.git
+    branch: main
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: notes_esigelec
+          property: connectionString
+
+databases:
+  - name: notes_esigelec
+    databaseName: notes_esigelec
+    user: root
